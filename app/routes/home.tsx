@@ -1,12 +1,17 @@
 import type { Route } from "./+types/home";
-
+import {Canvas} from '@react-three/fiber';
+import {Box, OrbitControls} from '@react-three/drei';
+// import Earth from '../components/canvas/Earth';
 // ฟังก์ชันดึงข้อมูล (รันที่ Server หรือตอนเปลี่ยน Route)
+
 export async function loader({ params }: Route.LoaderArgs) {
   const data = await fetch("https://696b8b2a624d7ddccaa17d28.mockapi.io/User").then(res => res.json());
   console.log("data:",data)
   return { items: data };
 }
 import { Link } from "react-router";
+import { Suspense } from "react";
+
 
 export default function Home() {
   return (
@@ -66,7 +71,9 @@ export default function Home() {
           
           <div className="w-full h-[80%] border-2 border-dashed border-gray-200 rounded-[2rem] flex items-center justify-center text-gray-400 italic">
             {/* คุณสามารถนำ Canvas จาก Three.js หรือ Spline มาใส่ตรงนี้ได้เลย */}
-            3D Model Area (Study in progress)
+         <Canvas>
+  <Box />
+</Canvas>
           </div>
         </div>
 
