@@ -6,7 +6,6 @@ import {Box, OrbitControls} from '@react-three/drei';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const data = await fetch("https://696b8b2a624d7ddccaa17d28.mockapi.io/User").then(res => res.json());
-  console.log("data:",data)
   return { items: data };
 }
 import { Link } from "react-router";
@@ -22,7 +21,7 @@ export default function Home() {
           <div className="text-2xl font-bold tracking-tight">Warming</div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
             <Link to="/about" className="hover:text-black transition-colors">About</Link>
-            <Link to="/features" className="hover:text-black transition-colors">Features</Link>
+            <Link to="/products" className="hover:text-black transition-colors">Products</Link>
             {/* <Link to="/pricing" className="hover:text-black transition-colors">Pricing</Link> */}
           </div>
         </div>
